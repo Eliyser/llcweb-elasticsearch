@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <title>广东省信息物理融合系统重点实验室</title>
+    <meta name="keywords" content="广东省信息物理融合系统重点实验室,信息物理融合系统重点实验室,信息物理融合系统">
+    <meta name="description" content="广东省信息物理融合系统重点实验室">
+    <link href="../static/admin/css/bootstrap.min.css" th:href="@{/admin/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../static/admin/css/font-awesome.min.css" th:href="@{/admin/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="../static/admin/css/style.css" th:href="@{/admin/css/style.css}" rel="stylesheet"/>
+    <link href="../static/admin/css/login.min.css" th:href="@{/admin/css/login.min.css}" rel="stylesheet"/>
+    <link href="../static/admin/ajax/libs/iCheck/custom.css" th:href="@{/admin/ajax/libs/iCheck/custom.css}" rel="stylesheet"/>
+    <link href="../static/admin/ruoyi/css/ry-ui.css" th:href="@{/admin/ruoyi/css/ry-ui.css?v=3.1.0}" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon" href="../static/admin/favicon.ico" th:href="@{/admin/favicon.ico}"/>
+    <style type="text/css">label.error { position:inherit;  }</style>
+    <script>
+        if(window.top!==window.self){window.top.location=window.location};
+    </script>
+</head>
+
+<body class="signin">
+
+
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-5">
+                <form id="signupForm">
+                    <h4 class="no-margins">登录：</h4>
+                    <!--<p class="m-t-md">你若不离不弃，我必生死相依</p>-->
+                    <input type="text"     name="username" class="form-control uname"     placeholder="用户名" value="admin"    />
+                    <input type="password" name="password" class="form-control pword m-b" placeholder="密码"   value="admin123" />
+                    <div class="row" th:if="${captchaEnabled==true}">
+                        <div class="col-xs-6">
+                            <input type="text" name="validateCode" class="form-control code" placeholder="验证码" maxlength="5">
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="javascript:void(0);" title="点击更换验证码">
+                                <img th:src="@{/admin/captcha/captchaImage(type=${captchaType})}" class="imgcode" width="85%"/>
+                            </a>
+                        </div>
+                    </div>
+                    <!--<input class="i-checks" type="checkbox" name="rememberme" />&nbsp;&nbsp;记住我-->
+                    <button class="btn btn-success btn-block" id="btnSubmit" data-loading="正在验证登录，请稍后...">登录</button>
+                </form>
+            </div>
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b">
+                        <!--<h1><img alt="[ 文件 ]" src="../static/admin/ruoyi.png" th:src="@{/admin//tu.png}"></h1>-->
+                        <h1>信息物理融合系统重点实验室信息管理系统</h1>
+                    </div>
+                    <div class="m-b"></div>
+                    <h4>欢迎使用 <strong>LLCWEB 管理系统</strong></h4>
+                    <ul class="m-b">
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 文件管理</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 成果管理</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 人员管理</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 任务管理</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 动态管理</li>
+                    </ul>
+                    <strong style="color: #ffa40f;">本系统为实验室内部人员使用,初始登录账号为实验室成员姓名，
+                        密码为电话号码(登记时未提交电话号码的则为"111111"),无法登录请联系管理员</strong>
+                </div>
+            </div>
+
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2019 Copyright 广东省信息物理融合系统重点实验室版权所有 <br>
+                <h3><a href="http://gdauto.gdut.edu.cn" th:href="@{http://gdauto.gdut.edu.cn}" target="_blank" rel="nofollow">广东省信息物理融合系统重点实验室官网</a></h3>
+                <br>
+            </div>
+        </div>
+    </div>
+<script th:inline="javascript"> var ctx = [[@{/}]]; var captchaType = [[${captchaType}]];
+
+//    webPrefix 网站资源后缀
+    var webPrefix = "admin";
+</script>
+<!-- 全局js -->
+<script src="../static/admin/js/jquery.min.js" th:src="@{/admin/js/jquery.min.js}"></script>
+<script src="../static/admin/js/bootstrap.min.js" th:src="@{/admin//js/bootstrap.min.js}"></script>
+<!-- 验证插件 -->
+<script src="../static/admin/ajax/libs/validate/jquery.validate.min.js" th:src="@{/admin/ajax/libs/validate/jquery.validate.min.js}"></script>
+<script src="../static/admin/ajax/libs/validate/messages_zh.min.js" th:src="@{/admin/ajax/libs/validate/messages_zh.min.js}"></script>
+<script src="../static/admin/ajax/libs/layer/layer.min.js" th:src="@{/admin/ajax/libs/layer/layer.min.js}"></script>
+<script src="../static/admin/ajax/libs/iCheck/icheck.min.js" th:src="@{/admin/ajax/libs/iCheck/icheck.min.js}"></script>
+<script src="../static/admin/ajax/libs/blockUI/jquery.blockUI.js" th:src="@{/admin/ajax/libs/blockUI/jquery.blockUI.js}"></script>
+<script src="http://tajs.qq.com/stats?sId=62048022"></script>
+<script src="../static/admin/ruoyi/js/ry-ui.js" th:src="@{/admin/ruoyi/js/ry-ui.js?v=3.1.0}"></script>
+<script src="../static/admin/ruoyi/login.js" th:src="@{/admin/ruoyi/login.js}"></script>
+</body>
+</html>
